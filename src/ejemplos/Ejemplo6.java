@@ -1,3 +1,5 @@
+package ejemplos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +19,7 @@ public class Ejemplo6 extends JFrame implements ActionListener {
         setBounds(10,10,400,300);
 
         //Título
-        setTitle("Ejemplo 6: JTextField");
+        setTitle("ejemplos.Ejemplo 6: JTextField");
 
         //No redimensionable
         setResizable(false);

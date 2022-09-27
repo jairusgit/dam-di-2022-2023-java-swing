@@ -1,3 +1,5 @@
+package ejemplos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +17,7 @@ public class Ejemplo2 extends JFrame implements ActionListener {
         setBounds(0,0,350,200);
 
         //Título
-        setTitle("Ejemplo 2: Botones");
+        setTitle("ejemplos.Ejemplo 2: Botones");
 
         //No redimensionable
         setResizable(false);

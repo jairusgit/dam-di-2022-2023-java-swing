@@ -1,3 +1,5 @@
+package ejercicios;
+
 import javax.swing.JFrame;
 
 /**

@@ -1,3 +1,5 @@
+package ejemplos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +18,7 @@ public class Ejemplo5Principal extends JFrame implements ActionListener {
         setBounds(10,10,410,210);
 
         //Título
-        setTitle("Ejemplo 5: Diálogos modales");
+        setTitle("ejemplos.Ejemplo 5: Diálogos modales");
 
         //No redimensionable
         setResizable(false);

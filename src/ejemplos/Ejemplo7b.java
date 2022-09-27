@@ -1,3 +1,5 @@
+package ejemplos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +32,7 @@ public class Ejemplo7b extends JFrame implements ActionListener{
         setBounds(10,10,800,600);
 
         //Título
-        setTitle("Ejemplo 7a: JTextArea");
+        setTitle("ejemplos.Ejemplo 7a: JTextArea");
 
         //No redimensionable
         setResizable(false);

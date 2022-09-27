@@ -1,3 +1,5 @@
+package ejercicios;
+
 import java.awt.Color;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;

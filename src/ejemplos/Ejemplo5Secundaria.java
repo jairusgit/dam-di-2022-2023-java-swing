@@ -1,3 +1,5 @@
+package ejemplos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +24,7 @@ public class Ejemplo5Secundaria extends JDialog implements ActionListener {
         setBounds(430,10,410,210);
 
         //Título
-        setTitle("Ejemplo 5: Diálogos modales");
+        setTitle("ejemplos.Ejemplo 5: Diálogos modales");
 
         //No redimensionable
         setResizable(false);

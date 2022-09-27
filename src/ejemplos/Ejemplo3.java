@@ -1,3 +1,5 @@
+package ejemplos;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -21,7 +23,7 @@ public class Ejemplo3 extends JFrame {
 
     private void initPantalla(){
 
-        setTitle("Ejemplo 3: Eventos");
+        setTitle("ejemplos.Ejemplo 3: Eventos");
         setSize(240,390);
         setLayout(null);
         setResizable(false);

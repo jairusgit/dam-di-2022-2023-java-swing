@@ -1,4 +1,4 @@
-/* Las componentes Swing hay que importarlas del paquete javax.swing. Cuando debemos importar varias componentes de un paquete es más conveniente utilizar el asterisco que indicar cada clase a importar.*/
+package ejemplos;/* Las componentes Swing hay que importarlas del paquete javax.swing. Cuando debemos importar varias componentes de un paquete es más conveniente utilizar el asterisco que indicar cada clase a importar.*/
 import javax.swing.*;
 
 /* La clase JFrame encapsula el concepto de una ventana, para implementar una aplicación que muestre una ventana debemos plantear una clase que herede de la clase JFrame */
@@ -17,7 +17,7 @@ public class Ejemplo4 extends JFrame{
         setBounds(10,10,400,300);
 
         //Título
-        setTitle("Ejemplo 4: JLabel");
+        setTitle("ejemplos.Ejemplo 4: JLabel");
 
         //No redimensionable
         setResizable(false);
