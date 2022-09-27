@@ -26,7 +26,8 @@ public class Ejercicio4JDialog extends JDialog implements ActionListener{
         //String resultado = (parent.valorUsuario + valorMaquina) % 2 == 0 ? "Has ganado" : "Has perdido";
 
         //Etiquetas
-        label1 = new JLabel("Has elegido: " + parent.valorUsuario);
+        String texto = (parent.pares) ? "Has elegido pares" : "Has elegido nones";
+        label1 = new JLabel(texto + " y has pulsado " + parent.valorUsuario);
         label1.setBounds(150, 50, 200, 100);
         add(label1);
 

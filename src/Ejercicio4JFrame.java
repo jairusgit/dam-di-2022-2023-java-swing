@@ -60,6 +60,7 @@ public class Ejercicio4JFrame extends JFrame implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == boton){
                     valorUsuario = valor;
+                    visibilidadBotones(false);
                     Ejercicio4JDialog secundaria = new Ejercicio4JDialog(parent, true);
                     secundaria.setVisible(true);
                 }
@@ -79,12 +80,12 @@ public class Ejercicio4JFrame extends JFrame implements ActionListener{
         if (e.getSource() == botonNones){
             pares = false;
         }
-        mostrarBotones();
+        visibilidadBotones(true);
     }
 
-    private void mostrarBotones(){
+    private void visibilidadBotones(boolean mostrar){
         for (JButton botone : botones) {
-            botone.setVisible(true);
+            botone.setVisible(mostrar);
         }
     }
 }
