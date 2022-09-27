@@ -2,12 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 public class Ejercicio5Acceso extends JFrame implements ActionListener {
 
     JLabel labelUsuario, labelPassword, labelResultado;
-    JTextField textFieldUsuario, textFieldPassword;
+    JTextField textFieldUsuario;
+    JPasswordField passwordField;
     JButton boton;
 
     String usuario = "jairo";
@@ -31,10 +31,10 @@ public class Ejercicio5Acceso extends JFrame implements ActionListener {
         labelPassword.setBounds(50,110,300,30);
         add(labelPassword);
 
-        //JTextField
-        textFieldPassword = new JTextField();
-        textFieldPassword.setBounds(50,140,300,30);
-        add(textFieldPassword);
+        //JPasswordField
+        passwordField = new JPasswordField();
+        passwordField.setBounds(50,140,300,30);
+        add(passwordField);
 
         //Botón
         boton = new JButton("Enviar");
@@ -77,7 +77,8 @@ public class Ejercicio5Acceso extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == boton){
-            if (textFieldUsuario.getText().equals(usuario) && textFieldPassword.getText().equals(password)){
+            String clave = new String(passwordField.getPassword());
+            if (textFieldUsuario.getText().equals(usuario) && clave.equals(password)){
                 labelResultado.setText("Correcto");
                 labelResultado.setForeground(Color.GREEN);
             }
