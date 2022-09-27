@@ -14,6 +14,7 @@ public class Ejercicio5Acceso extends JFrame implements ActionListener {
     String password = "12345678";
     public Ejercicio5Acceso(){
 
+        //Layout
         initLayout();
 
         //Etiqueta
