@@ -29,6 +29,12 @@ public class Ejercicio4JDialog extends JDialog implements ActionListener{
 
         //Etiquetas
         String texto = (parent.pares) ? "Has elegido pares" : "Has elegido nones";
+//        if (parent.pares){
+//            String texto = "Has elegido pares";
+//        }
+//        else{
+//            String texto = "Has elegido nones";
+//        }
         label1 = new JLabel(texto + " y has pulsado " + parent.valorUsuario);
         label1.setBounds(150, 50, 200, 100);
         add(label1);

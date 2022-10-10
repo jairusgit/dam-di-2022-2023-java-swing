@@ -86,8 +86,8 @@ public class Ejercicio4JFrame extends JFrame implements ActionListener{
     }
 
     private void visibilidadBotones(boolean mostrar){
-        for (JButton botone : botones) {
-            botone.setVisible(mostrar);
+        for (JButton boton : botones) {
+            boton.setVisible(mostrar);
         }
     }
 }
