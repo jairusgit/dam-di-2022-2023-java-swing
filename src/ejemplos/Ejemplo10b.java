@@ -3,13 +3,14 @@ package ejemplos;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.util.ArrayList;
 
-public class Ejemplo10 extends JFrame implements ChangeListener {
+public class Ejemplo10b extends JFrame implements ChangeListener {
 
     JCheckBox checkBox1, checkBox2, checkBox3;
     JLabel label;
 
-    public Ejemplo10(){
+    public Ejemplo10b(){
 
         //Añado los checkbox y sus listeners
         checkBox1 = new JCheckBox("Español");
@@ -49,35 +50,33 @@ public class Ejemplo10 extends JFrame implements ChangeListener {
     }
 
     public static void main(String[] args) {
-        new Ejemplo10();
+        new Ejemplo10b();
     }
 
 
     @Override
     public void stateChanged(ChangeEvent e) {
 
-        boolean check = checkBox1.isSelected() || checkBox2.isSelected() || checkBox3.isSelected();
+        ArrayList<String> idiomas = new ArrayList<String>();
+
+        //Si selecciono uno de los checkbox, lo añado al arraylist
+        if (checkBox1.isSelected()) idiomas.add("Español"); else idiomas.remove("Español");
+        if (checkBox2.isSelected()) idiomas.add("Inglés"); else idiomas.remove("Inglés");
+        if (checkBox3.isSelected()) idiomas.add("Alemán"); else idiomas.remove("Alemán");
+
+        //Seteo el texto en función del tamaño del arraylist
+        switch (idiomas.size()) {
+            case 0  -> label.setText("Idiomas: ninguno.");
+            case 1  -> label.setText("Idioma: " + idiomas.get(0) + ".");
+            default -> label.setText(setTexto(idiomas) + ".");
+        }
+    }
+
+    private String setTexto(ArrayList<String> idiomas){
+
         String texto = "Idiomas: ";
-
-        //Si selecciono uno de los checkbox, lo añado al string
-        if (checkBox1.isSelected()){
-            texto += "Español, ";
-        }
-        if (checkBox2.isSelected()){
-            texto += "Inglés, ";
-        }
-        if (checkBox3.isSelected()){
-            texto += "Alemán, ";
-        }
-
-        //Quito la última ', ' y escribo el texto
-        texto = texto.substring(0, texto.length() - 2) + ".";
-
-        //Seteo el texto (o el texto por defecto si no hay ninguno seleccionado)
-        label.setText(check ? texto : "Idiomas: ninguno.");
-
-        //TODO 2: Si hay más de un idioma, el último debería ser " y Alemán"
-        //TODO 4: SI solo hay un idioma, no debe poner Idiomas
-
+        texto += (idiomas.size() == 2) ? idiomas.get(0) + " y " + idiomas.get(1) :
+                idiomas.get(0) + ", " + idiomas.get(1)  + " y " + idiomas.get(2);
+        return texto;
     }
 }
