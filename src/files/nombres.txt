@@ -1,0 +1,7 @@
+Por defecto
+Blanco
+Gris
+Rojo
+Naranja
+Verde
+Azulito
