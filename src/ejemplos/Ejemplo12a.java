@@ -1,25 +1,31 @@
 package ejemplos;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class Ejemplo12 extends JFrame implements ItemListener {
+public class Ejemplo12a extends JFrame implements ItemListener {
 
     JComboBox comboBox;
     JLabel label;
+    int numColores = 6;
+    String[] nombres = {"Por defecto","Blanco","Gris","Rojo","Naranja","Verde","Azulito"};
+    Color[] colores = {null,Color.white,Color.gray,Color.red,Color.orange,Color.green,new Color(75, 185, 200, 178)};
 
-    public Ejemplo12(){
+    public Ejemplo12a(){
+
+        //Color por defecto
+        colores[0] = getContentPane().getBackground();
 
         //Inicializo combobox y le añado ítems
         comboBox = new JComboBox();
-        comboBox.setBounds(10,10,80,20);
+        comboBox.setBounds(10,10,150,20);
         add(comboBox);
 
-        comboBox.addItem("ninguno");
-        comboBox.addItem("rojo");
-        comboBox.addItem("verde");
-        comboBox.addItem("azul");
+        for (String nombre: nombres){
+            comboBox.addItem(nombre);
+        }
         comboBox.addItemListener(this);
 
         //Inicializo label
@@ -41,7 +47,7 @@ public class Ejemplo12 extends JFrame implements ItemListener {
     }
 
     public static void main(String[] args) {
-        new Ejemplo12();
+        new Ejemplo12a();
     }
 
     @Override
@@ -49,10 +55,12 @@ public class Ejemplo12 extends JFrame implements ItemListener {
 
         String texto = "Color seleccionado: ";
 
-        //Añado a texto el valor seleccionado en el combo
         if (e.getSource() == comboBox){
+            int i = comboBox.getSelectedIndex(); //Obtengo el índice
+            getContentPane().setBackground(colores[i]); //Asigno el color
             texto += (String) comboBox.getSelectedItem();
-            label.setText(texto);
+            label.setText(texto);  //Añado a texto el valor seleccionado en el combo
+
         }
 
     }
