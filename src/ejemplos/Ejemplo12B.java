@@ -4,19 +4,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
-public class Ejemplo12a extends JFrame implements ItemListener {
+public class Ejemplo12B extends JFrame implements ItemListener {
 
     JComboBox comboBox;
     JLabel label;
+    ArrayList<String> nombres, colores = new ArrayList<String>();
 
-    String[] nombres = {"Por defecto","Blanco","Gris","Rojo","Naranja","Verde","Azulito"};
-    Color[] colores = {null,Color.white,Color.gray,Color.red,Color.orange,Color.green,new Color(75, 185, 200)};
+    String rutaNombres = "src/files/nombres.txt";
+    String rutaColores = "src/files/colores.txt";
 
-    public Ejemplo12a(){
+    public Ejemplo12B() throws IOException {
 
-        //Color por defecto
-        colores[0] = getContentPane().getBackground();
+        //Leo de los ficheros
+        nombres = leerFichero(rutaNombres);
+        colores = leerFichero(rutaColores);
 
         //Inicializo combobox y le añado ítems
         comboBox = new JComboBox();
@@ -36,6 +43,17 @@ public class Ejemplo12a extends JFrame implements ItemListener {
         initPantalla();
     }
 
+    private ArrayList<String> leerFichero(String ruta) throws IOException {
+
+        ArrayList<String> array = new ArrayList<>();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(ruta));
+        String linea;
+        while ((linea = bufferedReader.readLine()) != null){
+            array.add(linea);
+        }
+        return array;
+    }
+
     private void initPantalla() {
 
         setLayout(null); //Layout absoluto
@@ -46,8 +64,8 @@ public class Ejemplo12a extends JFrame implements ItemListener {
         setVisible(true); //Mostrar JFrame
     }
 
-    public static void main(String[] args) {
-        new Ejemplo12a();
+    public static void main(String[] args) throws IOException {
+        new Ejemplo12B();
     }
 
     @Override
@@ -56,13 +74,20 @@ public class Ejemplo12a extends JFrame implements ItemListener {
         String texto = "Color seleccionado: ";
 
         if (e.getSource() == comboBox){
-            int i = comboBox.getSelectedIndex(); //Obtengo el índice
-            getContentPane().setBackground(colores[i]); //Asigno el color
+            //Índice del array de nombres a partir del seleccionado en el combobox
+            int i = nombres.indexOf((String) comboBox.getSelectedItem());
+            //Construyo el color del hexadecimal
+            Color color = new Color(hex(colores.get(i)));
+            getContentPane().setBackground(color); //Asigno el color
             texto += (String) comboBox.getSelectedItem();
             label.setText(texto);  //Añado a texto el valor seleccionado en el combo
 
         }
 
+    }
+
+    private int hex(String color_hex){
+        return Integer.parseInt(color_hex,  16 );
     }
 
     //TODO 1: Cambiar el color del fondo al seleccionado
